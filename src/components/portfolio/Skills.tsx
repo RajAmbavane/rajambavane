@@ -4,9 +4,18 @@ import SectionHeader from "./SectionHeader";
 import { skills } from "@/data/portfolio";
 
 const groups = [
-  { key: "ai", title: "AI / LLM", icon: Bot, items: skills.ai, accent: "primary", highlight: true },
-  { key: "technical", title: "Technical", icon: Code2, items: skills.technical, accent: "secondary" },
-  { key: "soft", title: "Soft Skills", icon: Heart, items: skills.soft, accent: "primary" },
+  {
+    key: "ai", title: "AI / LLM", icon: Bot, items: skills.ai, highlight: true,
+    iconBg: "bg-primary/15 border-primary/30", iconColor: "text-primary",
+  },
+  {
+    key: "technical", title: "Technical", icon: Code2, items: skills.technical, highlight: false,
+    iconBg: "bg-secondary/15 border-secondary/30", iconColor: "text-secondary",
+  },
+  {
+    key: "soft", title: "Soft Skills", icon: Heart, items: skills.soft, highlight: false,
+    iconBg: "bg-primary/15 border-primary/30", iconColor: "text-primary",
+  },
 ];
 
 export default function Skills() {
@@ -37,8 +46,8 @@ export default function Skills() {
                 <div className="relative">
                   <div className="flex items-center justify-between">
                     <div className="inline-flex items-center gap-2.5">
-                      <div className={`inline-flex h-9 w-9 items-center justify-center rounded-lg bg-${g.accent}/15 border border-${g.accent}/30`}>
-                        <Icon className={`h-4 w-4 text-${g.accent}`} />
+                      <div className={`inline-flex h-9 w-9 items-center justify-center rounded-lg border ${g.iconBg}`}>
+                        <Icon className={`h-4 w-4 ${g.iconColor}`} />
                       </div>
                       <h3 className="font-semibold text-lg">{g.title}</h3>
                     </div>
