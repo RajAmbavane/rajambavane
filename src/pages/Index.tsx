@@ -10,9 +10,9 @@ import Contact from "@/components/portfolio/Contact";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Raj Ambavane — AI Systems Engineer & Builder";
+    document.title = "Raj Ambavane — AI · Data Science · ML Engineer";
     const desc =
-      "Raj Ambavane — AI Systems Engineer building multi-agent architectures, RAG-based LLMs, and data systems with real-world impact. UMD Data Science.";
+      "Raj Ambavane — AI, Data Science & Machine Learning portfolio. Building multi-agent architectures, RAG-based LLMs, predictive models, and analytics with real-world impact. UMD Data Science.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");

@@ -39,12 +39,13 @@ export default function Experience() {
                   </div>
 
                   <div className={`pl-12 md:pl-0 ${left ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
-                    <div className="font-mono text-xs text-primary tracking-wider uppercase">{e.org}</div>
-                    <h3 className="mt-1 text-2xl font-bold flex items-center gap-2 md:justify-end">
-                      {left && <span className="text-2xl">{e.icon}</span>}
-                      {e.role}
-                      {!left && <span className="text-2xl">{e.icon}</span>}
-                    </h3>
+                    <div className={`flex items-center gap-2.5 ${left ? "md:justify-end" : ""}`}>
+                      <span className="inline-flex h-7 px-2 min-w-[1.75rem] items-center justify-center rounded-md border border-primary/30 bg-primary/10 font-mono text-[10px] font-semibold tracking-wider text-primary">
+                        {e.icon}
+                      </span>
+                      <div className="font-mono text-xs text-primary tracking-wider uppercase">{e.org}</div>
+                    </div>
+                    <h3 className="mt-2 text-2xl font-bold">{e.role}</h3>
                   </div>
 
                   <div className={`pl-12 md:pl-0 ${left ? "md:pl-12" : "md:pr-12"}`}>
