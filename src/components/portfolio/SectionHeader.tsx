@@ -6,7 +6,7 @@ export default function SectionHeader({
   subtitle,
 }: {
   kicker: string;
-  title: string;
+  title?: string;
   subtitle?: string;
 }) {
   return (
@@ -21,15 +21,17 @@ export default function SectionHeader({
         <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
         {kicker}
       </motion.div>
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.6, delay: 0.05 }}
-        className="mt-4 text-4xl md:text-5xl font-bold tracking-tight"
-      >
-        {title}
-      </motion.h2>
+      {title && (
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, delay: 0.05 }}
+          className="mt-4 text-4xl md:text-5xl font-bold tracking-tight"
+        >
+          {title}
+        </motion.h2>
+      )}
       {subtitle && (
         <motion.p
           initial={{ opacity: 0, y: 20 }}

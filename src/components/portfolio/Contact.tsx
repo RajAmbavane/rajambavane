@@ -29,10 +29,10 @@ export default function Contact() {
               LET'S BUILD SOMETHING
             </div>
             <h2 className="mt-5 text-4xl md:text-6xl font-bold tracking-tight">
-              Have an <span className="text-gradient">AI problem</span> worth solving?
+              Have a <span className="text-gradient">data problem</span> worth solving?
             </h2>
             <p className="mt-5 max-w-xl mx-auto text-muted-foreground">
-              I'm open to AI engineering roles, research collaborations, and ambitious builds.
+              Open to AI, Data Science, and Machine Learning roles, research collaborations, and ambitious builds.
               Reach out — let's turn data into impact.
             </p>
 

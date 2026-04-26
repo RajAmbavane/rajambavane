@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, ArrowUpRight, Sprout, Star } from "lucide-react";
+import { Github, ArrowUpRight, Star, ExternalLink } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import { featuredProject, projects } from "@/data/portfolio";
 
@@ -9,7 +9,6 @@ export default function Projects() {
       <div className="mx-auto max-w-6xl">
         <SectionHeader
           kicker="03 · WORK"
-          title="Selected projects."
           subtitle="From flagship LLM systems to multi-agent automation — built end-to-end."
         />
 
@@ -69,7 +68,9 @@ export default function Projects() {
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 blur-2xl animate-pulse-glow" />
               <div className="relative h-full w-full rounded-3xl glass flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 grid-bg opacity-30" />
-                <Sprout className="relative h-32 w-32 text-primary drop-shadow-[0_0_20px_hsl(var(--primary)/0.6)]" />
+                <div className="relative font-mono text-7xl font-bold text-gradient tracking-tighter">
+                  KM
+                </div>
               </div>
             </div>
           </div>
@@ -78,21 +79,19 @@ export default function Projects() {
         {/* Other projects */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
           {projects.map((p, i) => (
-            <motion.a
+            <motion.div
               key={p.name}
-              href={p.github}
-              target="_blank"
-              rel="noreferrer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="group relative glass rounded-2xl p-6 hover:border-primary/40 transition overflow-hidden"
+              className="group relative glass rounded-2xl p-6 hover:border-primary/40 transition overflow-hidden flex flex-col"
             >
               <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-secondary/10 blur-2xl opacity-0 group-hover:opacity-100 transition" />
               <div className="relative flex items-start justify-between gap-4">
-                <div className="text-3xl">{p.icon}</div>
-                <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
+                <div className="inline-flex h-11 px-3 min-w-[2.75rem] items-center justify-center rounded-lg border border-primary/30 bg-primary/10 font-mono text-xs font-semibold tracking-wider text-primary">
+                  {p.icon}
+                </div>
               </div>
               <h3 className="mt-4 text-xl font-bold">{p.name}</h3>
               <div className="mt-0.5 font-mono text-xs text-primary">{p.tag}</div>
@@ -104,7 +103,27 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
-            </motion.a>
+              <div className="mt-5 flex flex-wrap gap-2 pt-4 border-t border-border/60">
+                <a
+                  href={p.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/40 px-3 py-1.5 text-xs font-medium hover:border-primary/40 hover:text-primary transition"
+                >
+                  <Github className="h-3.5 w-3.5" /> GitHub
+                </a>
+                {"demo" in p && p.demo && (
+                  <a
+                    href={p.demo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-primary/90 to-secondary/90 px-3 py-1.5 text-xs font-semibold text-background hover:opacity-90 transition"
+                  >
+                    <ExternalLink className="h-3.5 w-3.5" /> Live Demo
+                  </a>
+                )}
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

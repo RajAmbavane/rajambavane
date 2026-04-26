@@ -1,9 +1,9 @@
 export const profile = {
   name: "Raj Ambavane",
-  role: "AI Systems Engineer · Builder",
+  role: "AI · Data Science · ML Engineer",
   location: "College Park, MD",
   tagline:
-    "I build intelligent AI systems and multi-agent architectures that turn data into real-world impact.",
+    "I build intelligent AI systems and data-driven solutions — from LLM pipelines to predictive models and analytics that create real-world impact.",
   email: "rajambavane03@gmail.com",
   phone: "+1 227 275 1500",
   github: "https://github.com/RajAmbavane",
@@ -12,12 +12,12 @@ export const profile = {
 
 export const about = {
   summary:
-    "Data Science graduate student at the University of Maryland building end-to-end AI solutions — combining research, engineering, and real-world deployment.",
+    "Data Science graduate student at the University of Maryland working across AI Systems, Machine Learning, Data Science, and Analytics — combining research, engineering, and real-world deployment.",
   pillars: [
-    { title: "AI Systems Engineering", desc: "Designing scalable, production-grade AI pipelines." },
-    { title: "Multi-Agent Architectures", desc: "Orchestrating LLM agents for complex workflows." },
-    { title: "LLM Applications", desc: "RAG, fine-tuning, and orchestration in production." },
-    { title: "Data-Driven Products", desc: "Turning data into measurable, real-world impact." },
+    { title: "AI Systems & LLM Engineering", desc: "Multi-agent architectures, RAG pipelines, LLM fine-tuning and orchestration." },
+    { title: "Machine Learning & Predictive Modeling", desc: "End-to-end ML pipelines, model evaluation, AutoML, deep learning." },
+    { title: "Data Science & Analytics", desc: "EDA, statistical analysis, data storytelling, Tableau, Power BI." },
+    { title: "Data Engineering & Pipelines", desc: "ETL/ELT pipelines, AWS, Spark, Docker, scalable data infrastructure." },
   ],
 };
 
@@ -25,7 +25,7 @@ export const experiences = [
   {
     role: "Research Intern",
     org: "University of Maryland",
-    icon: "🧪",
+    icon: "RI",
     points: [
       "Conducted systematic review of 1400+ research papers using PRISMA methodology",
       "Analyzed 167+ studies in Neuro-Symbolic AI",
@@ -36,7 +36,7 @@ export const experiences = [
   {
     role: "AI Agent Developer Intern",
     org: "OLL",
-    icon: "🤖",
+    icon: "AI",
     points: [
       "Built multi-agent systems using LangChain & LangGraph",
       "Developed AI business advisor improving decision accuracy by 15%",
@@ -47,7 +47,7 @@ export const experiences = [
   {
     role: "Data Science Intern",
     org: "Intrainz",
-    icon: "📊",
+    icon: "DS",
     points: [
       "Built recommendation systems across multiple domains",
       "Achieved 85% accuracy",
@@ -75,15 +75,16 @@ export const projects = [
   {
     name: "LuxeResolve",
     tag: "Luxury Return Fraud Detection",
-    icon: "🧠",
+    icon: "LR",
     github: "https://github.com/RajAmbavane/LUXE",
+    demo: "https://luxeresolve.onrender.com/",
     desc: "Multi-agent AI system for detecting fraud in luxury item returns using LLM agents, anomaly detection, and behavioral intelligence.",
     stack: ["Multi-Agent", "LLM", "Anomaly Detection"],
   },
   {
     name: "Autonomous DS Crew",
     tag: "End-to-End Data Science Automation",
-    icon: "🤖",
+    icon: "DS",
     github: "https://github.com/RajAmbavane/Autonomour-DS-Crew",
     desc: "Multi-agent AI system automating the full data science lifecycle — ingestion, EDA, modeling, evaluation, and reporting. +40% efficiency.",
     stack: ["LangGraph", "AutoML", "Agents"],
@@ -91,7 +92,7 @@ export const projects = [
   {
     name: "Smart Plant Health",
     tag: "YOLO + LSTM Hybrid Model",
-    icon: "🌱",
+    icon: "CV",
     github: "https://github.com/RajAmbavane/Smart-Plant-Health-Monitor",
     desc: "Hybrid ML system using YOLO + LSTM for real-time plant health monitoring with 89% accuracy.",
     stack: ["YOLO", "LSTM", "Computer Vision"],
@@ -99,7 +100,7 @@ export const projects = [
   {
     name: "Telegram Fitness Bot",
     tag: "AI Chatbot · 200+ users",
-    icon: "💪",
+    icon: "BOT",
     github: "https://github.com/RajAmbavane/Telegram-Bot",
     desc: "AI-powered fitness chatbot with recommendation engine and predictive analytics. Increased user consistency by 35%.",
     stack: ["NLP", "Recommendation", "Python"],
@@ -138,17 +139,25 @@ export const awards = [
 
 export const skills = {
   ai: [
-    "LangChain", "LangGraph", "Hugging Face", "OpenAI API", "LLaMA",
+    "LangChain", "LangGraph", "Hugging Face Transformers", "OpenAI API", "LLaMA",
     "RAG Pipelines", "Multi-Agent Systems", "Prompt Engineering",
     "Vector DBs (FAISS)", "Knowledge Graphs", "AutoML", "Agent Orchestration",
     "Generative AI Design",
   ],
-  technical: [
-    "Python", "R", "SQL", "Flask",
-    "PyTorch", "TensorFlow", "Scikit-learn",
-    "Pandas", "NumPy", "Matplotlib",
-    "MongoDB", "MySQL", "Firebase",
-    "AWS", "Docker", "Git", "Apache Spark",
+  ml: [
+    "Scikit-learn", "PyTorch", "TensorFlow", "Keras", "XGBoost",
+    "YOLO", "LSTM", "Predictive Modeling", "Deep Learning",
+    "NLP", "Computer Vision", "Time Series Analysis", "Feature Engineering",
+  ],
+  data: [
+    "Pandas", "NumPy", "Matplotlib", "Seaborn", "EDA",
+    "Statistical Analysis", "Data Mining", "Tableau", "Power BI",
+    "Data Visualization", "Bayesian Analysis", "A/B Testing", "Google Analytics",
+  ],
+  engineering: [
+    "Python", "R", "SQL", "Flask", "ETL/ELT Pipelines",
+    "Apache Spark", "AWS", "Docker", "MongoDB", "MySQL",
+    "Firebase", "Supabase", "Git", "GitHub", "Jupyter", "DVC", "FastAPI",
   ],
   soft: [
     "Leadership", "Communication", "Problem Solving",

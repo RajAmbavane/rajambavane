@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Bot, Code2, Heart } from "lucide-react";
+import { Bot, Brain, BarChart3, Database, Heart } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import { skills } from "@/data/portfolio";
 
@@ -9,7 +9,15 @@ const groups = [
     iconBg: "bg-primary/15 border-primary/30", iconColor: "text-primary",
   },
   {
-    key: "technical", title: "Technical", icon: Code2, items: skills.technical, highlight: false,
+    key: "ml", title: "ML & Deep Learning", icon: Brain, items: skills.ml, highlight: false,
+    iconBg: "bg-secondary/15 border-secondary/30", iconColor: "text-secondary",
+  },
+  {
+    key: "data", title: "Data Science & Analytics", icon: BarChart3, items: skills.data, highlight: false,
+    iconBg: "bg-primary/15 border-primary/30", iconColor: "text-primary",
+  },
+  {
+    key: "engineering", title: "Data Engineering", icon: Database, items: skills.engineering, highlight: false,
     iconBg: "bg-secondary/15 border-secondary/30", iconColor: "text-secondary",
   },
   {
@@ -25,10 +33,9 @@ export default function Skills() {
         <SectionHeader
           kicker="04 · TOOLKIT"
           title="Skills & stack."
-          subtitle="An AI-first toolkit, sharpened in production."
         />
 
-        <div className="grid lg:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {groups.map((g, gi) => {
             const Icon = g.icon;
             return (
