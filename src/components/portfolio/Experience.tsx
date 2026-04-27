@@ -8,8 +8,8 @@ export default function Experience() {
       <div className="mx-auto max-w-5xl">
         <SectionHeader
           kicker="02 · JOURNEY"
-          title="Experience timeline."
-          subtitle="Research, agents, and production data systems."
+          title="Where I've worked."
+          subtitle="Research, AI agents, and production data systems."
         />
 
         <div className="relative">

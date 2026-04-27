@@ -32,7 +32,7 @@ export default function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
           </span>
-          AVAILABLE FOR AI · DATA SCIENCE · ML ROLES · 2025
+          AVAILABLE FOR AI · DATA SCIENCE · ML ROLES · 2026
         </motion.div>
 
         <motion.h1
@@ -56,7 +56,6 @@ export default function Hero() {
             <Sparkles className="h-3.5 w-3.5 text-primary" />
             {profile.role}
           </span>
-          <span className="text-border">/</span>
           <span className="inline-flex items-center gap-1.5">
             <MapPin className="h-3.5 w-3.5 text-secondary" />
             {profile.location}
@@ -106,13 +105,14 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl"
+          className="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 max-w-3xl"
         >
           {[
-            { v: "1400+", l: "Papers reviewed" },
+            { v: "100+", l: "Codebases reviewed" },
+            { v: "100+", l: "Research papers reviewed" },
             { v: "85%+", l: "Model accuracy" },
             { v: "60%", l: "Access uplift" },
-            { v: "5+", l: "AI projects shipped" },
+            { v: "10+", l: "AI projects shipped" },
           ].map((s, i) => (
             <div key={i}>
               <div className="text-2xl md:text-3xl font-bold text-gradient">{s.v}</div>

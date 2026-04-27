@@ -1,112 +1,77 @@
 import { useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, Points, PointMaterial, Sphere, MeshDistortMaterial } from "@react-three/drei";
+import { Float, Points, PointMaterial, Icosahedron, MeshDistortMaterial } from "@react-three/drei";
 import * as THREE from "three";
 
-function ParticleField() {
+function StarField() {
   const ref = useRef<THREE.Points>(null);
   const positions = useMemo(() => {
-    const arr = new Float32Array(1500 * 3);
-    for (let i = 0; i < 1500; i++) {
-      arr[i * 3] = (Math.random() - 0.5) * 18;
-      arr[i * 3 + 1] = (Math.random() - 0.5) * 18;
-      arr[i * 3 + 2] = (Math.random() - 0.5) * 18;
+    const arr = new Float32Array(1200 * 3);
+    for (let i = 0; i < 1200; i++) {
+      arr[i * 3] = (Math.random() - 0.5) * 20;
+      arr[i * 3 + 1] = (Math.random() - 0.5) * 20;
+      arr[i * 3 + 2] = (Math.random() - 0.5) * 20;
     }
     return arr;
   }, []);
-
-  useFrame((state) => {
+  useFrame((s) => {
     if (!ref.current) return;
-    ref.current.rotation.y = state.clock.elapsedTime * 0.04;
-    ref.current.rotation.x = state.clock.elapsedTime * 0.02;
+    ref.current.rotation.y = s.clock.elapsedTime * 0.025;
+    ref.current.rotation.x = s.clock.elapsedTime * 0.012;
   });
-
   return (
     <Points ref={ref} positions={positions} stride={3} frustumCulled>
-      <PointMaterial transparent color="#22d3ee" size={0.025} sizeAttenuation depthWrite={false} opacity={0.7} />
+      <PointMaterial transparent color="#8b5cf6" size={0.02} sizeAttenuation depthWrite={false} opacity={0.55} />
     </Points>
   );
 }
 
-function NeuralNodes() {
-  const group = useRef<THREE.Group>(null);
-  const nodes = useMemo(() => {
-    const arr: { pos: [number, number, number]; color: string }[] = [];
-    for (let i = 0; i < 14; i++) {
-      const r = 3.2;
-      const theta = (i / 14) * Math.PI * 2;
-      const y = (Math.random() - 0.5) * 2.5;
-      arr.push({
-        pos: [Math.cos(theta) * r, y, Math.sin(theta) * r],
-        color: i % 2 === 0 ? "#22d3ee" : "#a855f7",
-      });
-    }
-    return arr;
-  }, []);
+function CrystalCore() {
+  const inner = useRef<THREE.Mesh>(null);
+  const wire = useRef<THREE.Mesh>(null);
+  const outer = useRef<THREE.Mesh>(null);
 
-  useFrame((state) => {
-    if (!group.current) return;
-    group.current.rotation.y = state.clock.elapsedTime * 0.15;
-  });
-
-  const lines = useMemo(() => {
-    const segs: { a: [number, number, number]; b: [number, number, number] }[] = [];
-    for (let i = 0; i < nodes.length; i++) {
-      const next = nodes[(i + 1) % nodes.length];
-      segs.push({ a: nodes[i].pos, b: next.pos });
-      const skip = nodes[(i + 4) % nodes.length];
-      segs.push({ a: nodes[i].pos, b: skip.pos });
-    }
-    return segs;
-  }, [nodes]);
-
-  return (
-    <group ref={group}>
-      {nodes.map((n, i) => (
-        <Float key={i} speed={2} rotationIntensity={0.5} floatIntensity={0.6}>
-          <mesh position={n.pos}>
-            <sphereGeometry args={[0.12, 16, 16]} />
-            <meshStandardMaterial
-              color={n.color}
-              emissive={n.color}
-              emissiveIntensity={2}
-              toneMapped={false}
-            />
-          </mesh>
-        </Float>
-      ))}
-      {lines.map((l, i) => {
-        const points = [new THREE.Vector3(...l.a), new THREE.Vector3(...l.b)];
-        const geom = new THREE.BufferGeometry().setFromPoints(points);
-        return (
-          <line key={i}>
-            <primitive object={geom} attach="geometry" />
-            <lineBasicMaterial color="#22d3ee" transparent opacity={0.18} />
-          </line>
-        );
-      })}
-    </group>
-  );
-}
-
-function CoreOrb() {
-  const ref = useRef<THREE.Mesh>(null);
   useFrame((s) => {
-    if (ref.current) ref.current.rotation.y = s.clock.elapsedTime * 0.3;
+    const t = s.clock.elapsedTime;
+    if (inner.current) {
+      inner.current.rotation.y = t * 0.18;
+      inner.current.rotation.x = t * 0.08;
+    }
+    if (wire.current) {
+      wire.current.rotation.y = -t * 0.12;
+      wire.current.rotation.z = t * 0.05;
+    }
+    if (outer.current) {
+      outer.current.rotation.y = t * 0.06;
+      const pulse = 1 + Math.sin(t * 0.8) * 0.04;
+      outer.current.scale.setScalar(pulse);
+    }
   });
+
   return (
-    <Float speed={1.5} floatIntensity={0.8}>
-      <Sphere ref={ref} args={[1.1, 64, 64]}>
+    <Float speed={1.1} floatIntensity={0.6} rotationIntensity={0.3}>
+      {/* Outer wire shell */}
+      <mesh ref={outer}>
+        <icosahedronGeometry args={[2.4, 1]} />
+        <meshBasicMaterial color="#6d28d9" wireframe transparent opacity={0.18} />
+      </mesh>
+      {/* Mid wire */}
+      <mesh ref={wire}>
+        <icosahedronGeometry args={[1.7, 0]} />
+        <meshBasicMaterial color="#a78bfa" wireframe transparent opacity={0.35} />
+      </mesh>
+      {/* Inner glowing distorted core */}
+      <Icosahedron ref={inner} args={[1.05, 4]}>
         <MeshDistortMaterial
-          color="#0ea5e9"
+          color="#4c1d95"
           emissive="#7c3aed"
-          emissiveIntensity={0.8}
-          distort={0.45}
-          speed={2}
-          roughness={0.2}
-          metalness={0.8}
+          emissiveIntensity={0.9}
+          distort={0.35}
+          speed={1.4}
+          roughness={0.3}
+          metalness={0.85}
         />
-      </Sphere>
+      </Icosahedron>
     </Float>
   );
 }
@@ -118,12 +83,12 @@ export default function NeuralScene() {
       camera={{ position: [0, 0, 7], fov: 55 }}
       gl={{ antialias: true, alpha: true }}
     >
-      <ambientLight intensity={0.4} />
-      <pointLight position={[5, 5, 5]} intensity={1.5} color="#22d3ee" />
-      <pointLight position={[-5, -3, -5]} intensity={1.2} color="#a855f7" />
-      <ParticleField />
-      <NeuralNodes />
-      <CoreOrb />
+      <ambientLight intensity={0.35} />
+      <pointLight position={[5, 5, 5]} intensity={1.4} color="#8b5cf6" />
+      <pointLight position={[-5, -3, -5]} intensity={1.1} color="#6366f1" />
+      <pointLight position={[0, 4, -4]} intensity={0.9} color="#a855f7" />
+      <StarField />
+      <CrystalCore />
     </Canvas>
   );
 }
