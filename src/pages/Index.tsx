@@ -27,7 +27,7 @@ const Index = () => {
       canonical.setAttribute("rel", "canonical");
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute("href", window.location.origin + "/");
+    canonical.setAttribute("href", window.location.origin + "/rajambavane");
   }, []);
 
   return (
