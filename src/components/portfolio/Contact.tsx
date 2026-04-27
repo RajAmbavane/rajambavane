@@ -32,8 +32,8 @@ export default function Contact() {
               Have a <span className="text-gradient">data problem</span> worth solving?
             </h2>
             <p className="mt-5 max-w-xl mx-auto text-muted-foreground">
-              Open to AI, Data Science, and Machine Learning roles, research collaborations, and ambitious builds.
-              Reach out — let's turn data into impact.
+              I'm open to AI, Data Science, and Machine Learning roles, research collaborations, and ambitious builds.
+              If you have an interesting problem, I'd love to hear about it.
             </p>
 
             <a
@@ -68,7 +68,7 @@ export default function Contact() {
         </motion.div>
 
         <footer className="mt-12 flex flex-col md:flex-row items-center justify-between gap-3 text-xs font-mono text-muted-foreground">
-          <div>© {new Date().getFullYear()} Raj Ambavane · Built with React Three Fiber + Framer Motion</div>
+          <div>© {new Date().getFullYear()} Raj Ambavane · Built with React Three Fiber and Framer Motion</div>
           <div className="inline-flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
             ONLINE · COLLEGE PARK, MD
