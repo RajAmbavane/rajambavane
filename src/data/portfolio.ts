@@ -135,6 +135,7 @@ export const projects = [
       "Moves the spray day using live weather over the village, not the district.",
       "Books a real agronomist, keeps a season record, and emails the plan in the user's language.",
     ],
+    demo: "https://a1lg4majcgg6.run.agentplace.io/",
     stack: ["AI Agents", "Computer Vision", "Multilingual NLP", "Google Maps", "OpenWeather", "Airtable", "Cal.com"],
   },
   {
@@ -178,30 +179,6 @@ export const projects = [
     ],
     stack: ["YOLOv8", "ResNet50", "LSTM", "PyTorch", "FastAPI", "DVC"],
   },
-  {
-    name: "Hybrid RAG",
-    tag: "Knowledge Graph + Vector Retrieval",
-    iconKey: "graph",
-    desc: "A retrieval prototype that pairs Neo4j graph traversal with vector search, so answers carry connected context as well as semantic matches.",
-    highlights: [
-      "Graph relationships retrieved alongside semantically similar passages.",
-      "Explores how structured context improves grounding in question answering.",
-    ],
-    stack: ["Neo4j", "Knowledge Graphs", "RAG", "Vector DBs", "Python"],
-  },
-  {
-    name: "Telegram Fitness Bot",
-    tag: "AI Chatbot with 200+ users",
-    iconKey: "bot",
-    github: "https://github.com/RajAmbavane/Telegram-Bot",
-    desc: "An AI fitness chatbot with a recommendation engine and predictive analytics. Used by 200+ people and improved consistency by 35%.",
-    highlights: [
-      "Recommendation engine tuned to user goals.",
-      "Predictive analytics on workout adherence.",
-      "Boosted user consistency by 35% in beta.",
-    ],
-    stack: ["NLP", "Recommendation", "Python", "Telegram API"],
-  },
 ];
 
 export const publications = [
@@ -242,19 +219,27 @@ export const skills = {
     "Groq", "RAG Pipelines", "Hybrid Search", "Multi-Agent Systems", "Prompt Engineering",
     "Vector DBs (FAISS)", "Neo4j Knowledge Graphs", "LoRA Fine-Tuning", "AutoML",
     "Agent Orchestration", "Generative AI Design", "BM25", "Cross-Encoder Reranking",
-    "SearXNG", "Semantic Search", "Azure AI Builder",
+    "SearXNG", "Semantic Search", "Azure AI Builder", "Agentic AI", "Generative AI",
+    "Large Language Models", "AI Agents", "Conversational AI", "Vision Language Models",
+    "LLaMA 3.3", "Llama 4 Scout", "GGUF", "Vector Embeddings", "TPOT", "Fine-Tuning",
+    "Multilingual NLP", "Knowledge Graphs", "Graph Databases",
   ],
   ml: [
     "Scikit-learn", "PyTorch", "TensorFlow", "Keras", "XGBoost", "LightGBM",
     "YOLOv8", "LSTM", "BioBERT", "SHAP", "Explainable AI", "Predictive Modeling",
     "Deep Learning", "NLP", "Computer Vision", "Time Series Analysis", "Feature Engineering",
     "ResNet50", "Transfer Learning", "Sensor Fusion", "Model Evaluation",
+    "Recommender Systems", "Collaborative Filtering", "Reinforcement Learning",
+    "Deep Q-Networks", "Dimensionality Reduction", "PCA", "Kernel PCA",
+    "Laplacian Eigenmaps", "Clustering", "Classification", "OpenCV", "Time Series Forecasting",
   ],
   data: [
     "Pandas", "NumPy", "Matplotlib", "Seaborn", "EDA",
     "Statistical Analysis", "Data Mining", "Tableau", "Power BI", "Microsoft Fabric",
     "Data Visualization", "Bayesian Analysis", "A/B Testing", "Google Analytics",
     "PRISMA Systematic Review", "Meta-Analysis", "Business Intelligence",
+    "Data Engineering", "Data Pipelines", "PySpark", "NetworkX", "Graph Analytics",
+    "Network Analysis", "Literature Reviews", "Reproducible Research",
   ],
   engineering: [
     "Python", "R", "SQL", "TypeScript", "React", "SPFx", "FastAPI", "Flask",
@@ -263,10 +248,15 @@ export const skills = {
     "Dataverse", "Docker", "MLflow", "MongoDB", "MySQL", "Supabase", "Git", "DVC",
     "PHP", "Vite", "Tailwind CSS", "Vitest", "React Router", "TanStack Query", "Zod",
     "Framer Motion", "REST APIs", "Telegram API", "GitHub Actions", "CI/CD", "Render",
+    "SharePoint", "SharePoint Framework (SPFx)", "Fluent UI", "Azure Logic Apps",
+    "Microsoft Power Platform", "Microsoft 365", "PostgreSQL", "Streamlit", "GitHub",
+    "MLOps", "Process Automation", "Workflow Automation", "API Integration",
+    "Google Maps API", "OpenWeather API", "Gmail API", "Airtable", "Cal.com",
   ],
   soft: [
     "Leadership", "Communication", "Problem Solving",
     "Analytical Thinking", "Collaboration", "Adaptability", "Product Thinking",
+    "Research", "Technical Documentation",
   ],
 };
 
