@@ -89,20 +89,38 @@ export const experiences = [
   },
 ];
 
-export const featuredProject = {
-  name: "Krishi Mitra",
-  subtitle: "RAG based Agricultural LLM",
-  github: "https://github.com/RajAmbavane/Krishi-Mitra-An-Agricultural-LLM",
-  description:
-    "A multilingual RAG system built with a LoRA fine-tuned LLaMA 3.2, FAISS retrieval, and SearXNG search. It gives farmers real time agricultural intelligence in their own language.",
-  highlights: [
-    "Full pipeline from ingestion to embedding, retrieval, and generation.",
-    "Real time insights on weather, government schemes, and farming decisions.",
-    "Improves information access for rural users by 60%.",
-    "FastAPI backend with a React and TypeScript interface on Supabase.",
-  ],
-  stack: ["LLaMA 3.2", "LoRA", "RAG", "FAISS", "SearXNG", "FastAPI", "Python"],
-};
+export const featuredProjects = [
+  {
+    name: "Drug Interaction Watchdog",
+    subtitle: "Six Agent Clinical AI",
+    iconKey: "pill",
+    github: "https://github.com/RajAmbavane/Drug-Interaction-Watchdog",
+    description:
+      "A six agent prototype for drug interaction safety, pairing CYP450 risk modeling with explainable evidence retrieval across FDA, FAERS, and PubMed.",
+    highlights: [
+      "LangGraph orchestration across analysis, retrieval, and severity based alerting.",
+      "XGBoost CYP450 classifier with SHAP explanations tuned to age, kidney, and liver function.",
+      "Hybrid BioBERT, BM25, and dense retrieval with cross-encoder reranking and citation keys.",
+      "Llama 4 Scout vision intake reads prescriptions and lab reports. Research prototype only.",
+    ],
+    stack: ["LangGraph", "XGBoost", "SHAP", "BioBERT", "FAISS", "Groq", "Supabase"],
+  },
+  {
+    name: "Krishi Mitra",
+    subtitle: "RAG based Agricultural LLM",
+    iconKey: "sprout",
+    github: "https://github.com/RajAmbavane/Krishi-Mitra-An-Agricultural-LLM",
+    description:
+      "A multilingual RAG system built with a LoRA fine-tuned LLaMA 3.2, FAISS retrieval, and SearXNG search. It gives farmers real time agricultural intelligence in their own language.",
+    highlights: [
+      "Full pipeline from ingestion to embedding, retrieval, and generation.",
+      "Real time insights on weather, government schemes, and farming decisions.",
+      "Improves information access for rural users by 60%.",
+      "FastAPI backend with a React and TypeScript interface on Supabase.",
+    ],
+    stack: ["LLaMA 3.2", "LoRA", "RAG", "FAISS", "SearXNG", "FastAPI", "Python"],
+  },
+];
 
 export const projects = [
   {
@@ -118,20 +136,6 @@ export const projects = [
       "Books a real agronomist, keeps a season record, and emails the plan in the user's language.",
     ],
     stack: ["AI Agents", "Computer Vision", "Multilingual NLP", "Google Maps", "OpenWeather", "Airtable", "Cal.com"],
-  },
-  {
-    name: "Drug Watchdog",
-    tag: "Six Agent Clinical AI",
-    iconKey: "pill",
-    github: "https://github.com/RajAmbavane/Drug-Interaction-Watchdog",
-    desc: "A six agent prototype for drug interaction safety, pairing CYP450 risk modeling with explainable evidence retrieval across FDA, FAERS, and PubMed.",
-    highlights: [
-      "LangGraph orchestration across analysis, retrieval, and severity based alerting.",
-      "XGBoost CYP450 classifier with SHAP explanations tuned to age, kidney, and liver function.",
-      "Hybrid BioBERT, BM25, and dense retrieval with cross-encoder reranking and citation keys.",
-      "Llama 4 Scout vision intake reads prescriptions and lab reports. Research prototype only.",
-    ],
-    stack: ["LangGraph", "XGBoost", "SHAP", "BioBERT", "FAISS", "Groq", "Supabase"],
   },
   {
     name: "LuxeResolve",
@@ -237,23 +241,28 @@ export const skills = {
     "LangChain", "LangGraph", "CrewAI", "Hugging Face Transformers", "OpenAI API", "LLaMA",
     "Groq", "RAG Pipelines", "Hybrid Search", "Multi-Agent Systems", "Prompt Engineering",
     "Vector DBs (FAISS)", "Neo4j Knowledge Graphs", "LoRA Fine-Tuning", "AutoML",
-    "Agent Orchestration", "Generative AI Design",
+    "Agent Orchestration", "Generative AI Design", "BM25", "Cross-Encoder Reranking",
+    "SearXNG", "Semantic Search", "Azure AI Builder",
   ],
   ml: [
     "Scikit-learn", "PyTorch", "TensorFlow", "Keras", "XGBoost", "LightGBM",
     "YOLOv8", "LSTM", "BioBERT", "SHAP", "Explainable AI", "Predictive Modeling",
     "Deep Learning", "NLP", "Computer Vision", "Time Series Analysis", "Feature Engineering",
+    "ResNet50", "Transfer Learning", "Sensor Fusion", "Model Evaluation",
   ],
   data: [
     "Pandas", "NumPy", "Matplotlib", "Seaborn", "EDA",
     "Statistical Analysis", "Data Mining", "Tableau", "Power BI", "Microsoft Fabric",
     "Data Visualization", "Bayesian Analysis", "A/B Testing", "Google Analytics",
+    "PRISMA Systematic Review", "Meta-Analysis", "Business Intelligence",
   ],
   engineering: [
     "Python", "R", "SQL", "TypeScript", "React", "SPFx", "FastAPI", "Flask",
     "ETL/ELT Pipelines", "Apache Spark", "AWS", "Azure OpenAI", "Azure Functions",
     "Azure AI Document Intelligence", "Azure SQL", "Power Automate", "Copilot Studio",
     "Dataverse", "Docker", "MLflow", "MongoDB", "MySQL", "Supabase", "Git", "DVC",
+    "PHP", "Vite", "Tailwind CSS", "Vitest", "React Router", "TanStack Query", "Zod",
+    "Framer Motion", "REST APIs", "Telegram API", "GitHub Actions", "CI/CD", "Render",
   ],
   soft: [
     "Leadership", "Communication", "Problem Solving",

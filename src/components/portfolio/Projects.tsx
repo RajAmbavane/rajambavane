@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Github, ArrowUpRight, Star, ExternalLink, Sprout, Shield, Network, Leaf, Bot, Sparkles, Pill, Share2, Trophy } from "lucide-react";
 import SectionHeader from "./SectionHeader";
-import { featuredProject, projects } from "@/data/portfolio";
+import { featuredProjects, projects } from "@/data/portfolio";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   shield: Shield,
@@ -35,58 +35,66 @@ export default function Projects() {
         <SectionHeader kicker="03 · WORK" />
 
         {/* Featured */}
-        <motion.a
-          href={featuredProject.github}
-          target="_blank"
-          rel="noreferrer"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7 }}
-          className="group relative block overflow-hidden rounded-3xl glass border-glow p-8 md:p-10 hover:shadow-glow-cyan transition-all"
-        >
-          <div className="pointer-events-none absolute -top-20 -right-20 h-80 w-80 rounded-full bg-primary/20 blur-3xl group-hover:bg-primary/30 transition" />
-          <div className="pointer-events-none absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-secondary/20 blur-3xl group-hover:bg-secondary/30 transition" />
+        <div className="grid grid-cols-1 gap-8">
+          {featuredProjects.map((f, fi) => {
+            const FeaturedIcon = iconMap[f.iconKey] ?? Sparkles;
+            return (
+              <motion.a
+                key={f.name}
+                href={f.github}
+                target="_blank"
+                rel="noreferrer"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.7, delay: fi * 0.1 }}
+                className="group relative block overflow-hidden rounded-3xl glass border-glow p-8 md:p-10 hover:shadow-glow-cyan transition-all"
+              >
+                <div className="pointer-events-none absolute -top-20 -right-20 h-80 w-80 rounded-full bg-primary/20 blur-3xl group-hover:bg-primary/30 transition" />
+                <div className="pointer-events-none absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-secondary/20 blur-3xl group-hover:bg-secondary/30 transition" />
 
-          <div className="relative grid lg:grid-cols-[1.3fr_1fr] gap-10 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-secondary/10 border border-secondary/30 px-3 py-1 font-mono text-xs text-secondary-glow">
-                <Star className="h-3 w-3 fill-current" /> FLAGSHIP PROJECT
-              </div>
-              <h3 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight">
-                {featuredProject.name}
-              </h3>
-              <div className="mt-1 font-mono text-sm text-primary">{featuredProject.subtitle}</div>
-              <p className="mt-5 text-foreground/80 leading-relaxed text-lg">
-                {featuredProject.description}
-              </p>
-              <ul className="mt-6 grid sm:grid-cols-2 gap-2.5 text-sm">
-                {featuredProject.highlights.map((h, i) => (
-                  <li key={i} className="flex gap-2 text-muted-foreground">
-                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
-                    <span className="text-foreground/80">{h}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {featuredProject.stack.map((s) => (
-                  <span
-                    key={s}
-                    className="rounded-full border border-border bg-muted/50 px-3 py-1 font-mono text-xs"
-                  >
-                    {s}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-7 inline-flex items-center gap-2 text-primary group-hover:gap-3 transition-all font-medium">
-                <Github className="h-4 w-4" /> View on GitHub
-                <ArrowUpRight className="h-4 w-4" />
-              </div>
-            </div>
+                <div className="relative grid lg:grid-cols-[1.3fr_1fr] gap-10 items-center">
+                  <div>
+                    <div className="inline-flex items-center gap-2 rounded-full bg-secondary/10 border border-secondary/30 px-3 py-1 font-mono text-xs text-secondary-glow">
+                      <Star className="h-3 w-3 fill-current" /> FLAGSHIP PROJECT
+                    </div>
+                    <h3 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight">
+                      {f.name}
+                    </h3>
+                    <div className="mt-1 font-mono text-sm text-primary">{f.subtitle}</div>
+                    <p className="mt-5 text-foreground/80 leading-relaxed text-lg">
+                      {f.description}
+                    </p>
+                    <ul className="mt-6 grid sm:grid-cols-2 gap-2.5 text-sm">
+                      {f.highlights.map((h, i) => (
+                        <li key={i} className="flex gap-2 text-muted-foreground">
+                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                          <span className="text-foreground/80">{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {f.stack.map((s) => (
+                        <span
+                          key={s}
+                          className="rounded-full border border-border bg-muted/50 px-3 py-1 font-mono text-xs"
+                        >
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-7 inline-flex items-center gap-2 text-primary group-hover:gap-3 transition-all font-medium">
+                      <Github className="h-4 w-4" /> View on GitHub
+                      <ArrowUpRight className="h-4 w-4" />
+                    </div>
+                  </div>
 
-            <ProjectVisual Icon={Sprout} />
-          </div>
-        </motion.a>
+                  <ProjectVisual Icon={FeaturedIcon} />
+                </div>
+              </motion.a>
+            );
+          })}
+        </div>
 
         {/* Other projects, uniform layout */}
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
